@@ -11,7 +11,7 @@ call plug#end()
 
 syntax on
 set background=dark
-colorscheme gruvbox
+colorscheme solarized
 let g:gruvbox_contrast_dark = 'hard'
 
 " Line numbers
