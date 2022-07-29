@@ -38,4 +38,3 @@ require('telescope').load_extension('fzf')
 
 vim.keymap.set('n', ';', ':Telescope find_files<CR>')
 vim.keymap.set('n', '<Leader>s', ':Telescope live_grep<CR>')
-vim.keymap.set('n', '<Leader>ce', ':Telescope find_files grouped=true path=~/.config/nvim<CR>')

@@ -9,10 +9,10 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, { buffer=0 })
   vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", { buffer=0 })
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, { buffer=0 })
-  vim.keymap.set("n", "K", require("lspsaga.hover").render_hover_doc, { silent = true })
-  vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true,noremap = true })
-  vim.keymap.set("v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>", { silent = true,noremap = true })
-  vim.keymap.set("n", "<leader>cd", require("lspsaga.diagnostic").show_line_diagnostics, { silent = true,noremap = true })
+  vim.keymap.set("n", "K", require("lspsaga.hover").render_hover_doc, { silent = true, buffer = 0 })
+  vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true, noremap = true, buffer = 0 })
+  vim.keymap.set("v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>", { silent = true,noremap = true, buffer = 0})
+  vim.keymap.set("n", "<leader>cd", require("lspsaga.diagnostic").show_line_diagnostics, { silent = true, noremap = true, buffer = 0 })
 
   -- autoformat on save
   vim.api.nvim_create_autocmd("BufWritePre", {
