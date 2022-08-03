@@ -4,7 +4,6 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 local on_attach = function(client, bufnr)
   capabilities = capabilities
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer=0 })
-  vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { buffer=0 })
   vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, { buffer=0 })
   vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, { buffer=0 })
   vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", { buffer=0 })
@@ -13,6 +12,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true, noremap = true, buffer = 0 })
   vim.keymap.set("v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>", { silent = true,noremap = true, buffer = 0})
   vim.keymap.set("n", "<leader>cd", require("lspsaga.diagnostic").show_line_diagnostics, { silent = true, noremap = true, buffer = 0 })
+  vim.keymap.set("n", "<leader>r", require("lspsaga.rename").lsp_rename, { silent = true, noremap = true, buffer = 0 })
 
   -- autoformat on save
   vim.api.nvim_create_autocmd("BufWritePre", {

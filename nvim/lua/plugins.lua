@@ -5,6 +5,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
+  use 'goolord/alpha-nvim'
 
   use 'ellisonleao/gruvbox.nvim'
   use 'folke/tokyonight.nvim'
