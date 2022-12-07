@@ -1,4 +1,7 @@
 require("nvim-tree").setup({
+  view = {
+    width = 40,
+  },
   actions = {
     open_file = {
       window_picker = {

@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup {
+--[[ require'nvim-treesitter.configs'.setup {
     ensure_installed = { "graphql", "ruby", "javascript" },
     sync_install = false,
     highlight = {
@@ -11,4 +11,4 @@ require'nvim-treesitter.configs'.setup {
     autotag = {
       enable = true,
     }
-}
+} ]]

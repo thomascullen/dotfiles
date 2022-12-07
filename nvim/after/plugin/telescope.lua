@@ -5,6 +5,13 @@ require("telescope").setup {
     file_browser = {
       theme = "dropdown",
       hijack_netrw = true,
+      grouped = true,
+      mappings = {
+        ["n"] = {
+          ["j"] = actions.move_selection_next,
+          ["k"] = actions.move_selection_previous,
+        },
+      },
     },
     fzf = {
       fuzzy = true,                    -- false will only do exact matching
@@ -19,8 +26,11 @@ require("telescope").setup {
       prompt_position = "top",
     },
     mappings = {
+      n = {
+        ["<Leader>p"] = actions.close,
+      },
       i = {
-        ["<C-;>"] = actions.close,
+        ["<Leader>p"] = actions.close,
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
       },
@@ -33,8 +43,15 @@ require("telescope").setup {
   }
 }
 
-require("telescope").load_extension "file_browser"
 require('telescope').load_extension('fzf')
+-- require("telescope").load_extension "file_browser"
 
-vim.keymap.set('n', ';', ':Telescope find_files<CR>')
+vim.keymap.set('n', '<Leader>p', ':Telescope find_files<CR>')
 vim.keymap.set('n', '<Leader>s', ':Telescope live_grep<CR>')
+
+--[[ vim.api.nvim_set_keymap(
+  "n",
+  "<Leader>e",
+  ":Telescope file_browser<CR>",
+  { noremap = true }
+) ]]

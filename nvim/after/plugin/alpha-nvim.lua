@@ -1,4 +1,4 @@
- local alpha = require'alpha'
+ --[[ local alpha = require'alpha'
  local dashboard = require'alpha.themes.dashboard'
 
  dashboard.section.header.val = {
@@ -17,7 +17,7 @@ dashboard.section.buttons.val = {
   dashboard.button( "e", "  New file" , ":ene <BAR> startinsert <CR>"),
   dashboard.button( "r", "  Recent"   , ":Telescope oldfiles<CR>"),
   dashboard.button( "q", "  Quit NVIM", ":qa<CR>"),
-}
+} ]]
 
  --[[ dashboard.section.footer.val = {
   "                       ",
@@ -25,4 +25,4 @@ dashboard.section.buttons.val = {
   "                       ",
 } ]]
 
-alpha.setup(dashboard.config)
+-- alpha.setup(dashboard.config)
