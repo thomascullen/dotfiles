@@ -48,6 +48,7 @@ require('telescope').load_extension('fzf')
 
 vim.keymap.set('n', '<Leader>p', ':Telescope find_files<CR>')
 vim.keymap.set('n', '<Leader>s', ':Telescope live_grep<CR>')
+vim.keymap.set('n', '<Leader>o', ':Telescope lsp_document_symbols<CR>')
 
 --[[ vim.api.nvim_set_keymap(
   "n",
