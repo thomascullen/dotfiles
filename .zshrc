@@ -17,11 +17,8 @@ alias gp="git pull"
 alias bd="./bin/dev"
 alias git_clean='git branch --merged | egrep -v "(^\*|master|main|dev)" | xargs git branch -d'
 alias autocop="git status | grep -v 'deleted:' | grep '\.rb\|\.rake' | awk '{print \$NF}' | grep -v db/schema | xargs rubocop -A"
-# alias nvim="~/Developer/nvim-macos/bin/nvim"
 alias dotfiles="cd ~/Developer/dotfiles && nvim"
 alias tx="tmux"
-alias t="tmuxinator"
-alias a="t advisable"
 
 if [[ -n "$ITERM_SESSION_ID" ]]; then
   function change-tab-color() {
