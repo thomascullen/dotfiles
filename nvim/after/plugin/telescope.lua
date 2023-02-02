@@ -1,4 +1,3 @@
-
 local actions = require("telescope.actions")
 require("telescope").setup {
   extensions = {
@@ -14,10 +13,10 @@ require("telescope").setup {
       },
     },
     fzf = {
-      fuzzy = true,                    -- false will only do exact matching
-      override_generic_sorter = true,  -- override the generic sorter
-      override_file_sorter = true,     -- override the file sorter
-      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+      fuzzy = true, -- false will only do exact matching
+      override_generic_sorter = true, -- override the generic sorter
+      override_file_sorter = true, -- override the file sorter
+      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
     }
   },
   defaults = {
@@ -44,15 +43,8 @@ require("telescope").setup {
 }
 
 require('telescope').load_extension('fzf')
--- require("telescope").load_extension "file_browser"
 
 vim.keymap.set('n', '<Leader>p', ':Telescope find_files<CR>')
 vim.keymap.set('n', '<Leader>s', ':Telescope live_grep<CR>')
+vim.keymap.set('n', '<Leader>i', ':Telescope diagnostics<CR>')
 vim.keymap.set('n', '<Leader>o', ':Telescope lsp_document_symbols<CR>')
-
---[[ vim.api.nvim_set_keymap(
-  "n",
-  "<Leader>e",
-  ":Telescope file_browser<CR>",
-  { noremap = true }
-) ]]

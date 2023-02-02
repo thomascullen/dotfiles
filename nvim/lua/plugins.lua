@@ -8,12 +8,9 @@ return require('packer').startup(function()
   use 'rose-pine/neovim'
 
   use "nvim-telescope/telescope.nvim"
-  use "nvim-telescope/telescope-file-browser.nvim"
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-  use("nvim-treesitter/nvim-treesitter", {
-    run = ":TSUpdate"
-  })
+  use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 
   use "nvim-lua/plenary.nvim"
   use "nvim-lua/popup.nvim"
@@ -57,7 +54,7 @@ return require('packer').startup(function()
       })
     end
   })
-  -- use "github/copilot.vim"
+
   use 'voldikss/vim-floaterm'
   use 'b3nj5m1n/kommentary'
   use 'sindrets/diffview.nvim'

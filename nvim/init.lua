@@ -18,6 +18,7 @@ vim.opt.backup = false
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.cmdheight = 0 -- hide command line when not in use
+vim.opt.laststatus = 0 -- hide status line
 
 vim.opt.smartindent = true
 
@@ -29,9 +30,18 @@ vim.opt.cursorline = true
 
 vim.g.mapleader = " "
 
-vim.keymap.set('i', 'jj', '<Esc>')
+vim.keymap.set('i', 'kj', '<Esc>')
+vim.keymap.set('i', '<C-c>', '<Esc>')
 vim.keymap.set('n', '<Leader>w', '<cmd>w <CR>')
 vim.keymap.set('n', '<Leader>q', '<cmd>q <CR>')
+
+-- keep cursor in center of screen for ctrl-d and ctrl-u
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- Keep cursor in center when jumping between search results
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
 
 -- paste without copying to register
 vim.keymap.set('n', '<Leader>p', '\"_dP')
