@@ -1,5 +1,3 @@
-require("plugins")
-
 vim.opt.guicursor = ""
 
 vim.opt.nu = true
@@ -67,3 +65,5 @@ vim.keymap.set('n', '$', 'g$')
 
 vim.opt.updatetime = 300
 vim.opt.scrolloff = 8
+
+require("plugins")

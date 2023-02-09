@@ -1,29 +1,35 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+require("lazy").setup({
+  "rose-pine/neovim",
+  "ayu-theme/ayu-vim",
+  "nvim-telescope/telescope.nvim",
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  "nvim-lua/plenary.nvim",
+  "nvim-lua/popup.nvim",
+  { 'nvim-lualine/lualine.nvim', dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true } },
+  'voldikss/vim-floaterm',
+  'b3nj5m1n/kommentary',
+  'sindrets/diffview.nvim',
+  'vim-test/vim-test',
+  'tpope/vim-fugitive',
+  'nvim-tree/nvim-tree.lua',
 
-return require('packer').startup(function()
-  use 'wbthomason/packer.nvim'
-  use 'rose-pine/neovim'
-
-  use "nvim-telescope/telescope.nvim"
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-
-  use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
-
-  use "nvim-lua/plenary.nvim"
-  use "nvim-lua/popup.nvim"
-
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
-
-  -- lsp
-  use {
+  {
     'VonHeikemen/lsp-zero.nvim',
-    requires = {
+    dependencies = {
       -- LSP Support
       { 'neovim/nvim-lspconfig' },
       { 'williamboman/mason.nvim' },
@@ -41,29 +47,12 @@ return require('packer').startup(function()
       { 'L3MON4D3/LuaSnip' },
       { 'rafamadriz/friendly-snippets' },
     }
-  }
+  },
 
-  -- use "nvim-treesitter/playground"
-  -- use "nvim-telescope/telescope-file-browser.nvim"
-  use({
-    "kylechui/nvim-surround",
-    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-    config = function()
-      require("nvim-surround").setup({
-        -- Configuration here, or leave empty to use defaults
-      })
-    end
-  })
+  { "kylechui/nvim-surround", version = "*" },
+  "windwp/nvim-autopairs",
 
-  use 'voldikss/vim-floaterm'
-  use 'b3nj5m1n/kommentary'
-  use 'sindrets/diffview.nvim'
-  use 'vim-test/vim-test'
-  use 'tpope/vim-fugitive'
-  use 'nvim-tree/nvim-tree.lua'
+})
 
-  use {
-    "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-  }
-end)
+require("nvim-autopairs").setup()
+require("nvim-surround").setup()
