@@ -15,7 +15,7 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-vim.opt.cmdheight = 0 -- hide command line when not in use
+vim.opt.cmdheight = 1 -- hide command line when not in use
 vim.opt.laststatus = 0 -- hide status line
 
 vim.opt.smartindent = true
