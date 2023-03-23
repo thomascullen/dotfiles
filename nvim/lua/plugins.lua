@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -12,6 +13,15 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+  "github/copilot.vim",
+
+  {
+    name = "acrylic",
+    dir = "~/Developer/acrylic",
+    config = function()
+      require("acrylic").setup()
+    end
+  },
 
   {
     'rose-pine/neovim',
@@ -20,13 +30,23 @@ require("lazy").setup({
     priority = 1000,
     config = function()
       require("rose-pine").setup()
-      vim.cmd('colorscheme rose-pine')
+      vim.cmd([[colorscheme rose-pine]])
+    end
+  },
+
+  {
+    "loctvl842/monokai-pro.nvim",
+    config = function()
+      require("monokai-pro").setup()
     end
   },
 
   "nvim-telescope/telescope.nvim",
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   { "nvim-treesitter/nvim-treesitter",          build = ":TSUpdate" },
+
+  "nvim-treesitter/playground",
+
   "nvim-lua/plenary.nvim",
   "nvim-lua/popup.nvim",
   { 'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true } },
@@ -35,7 +55,6 @@ require("lazy").setup({
   'vim-test/vim-test',
   'tpope/vim-fugitive',
   'nvim-tree/nvim-tree.lua',
-  "akinsho/toggleterm.nvim",
 
   {
     'VonHeikemen/lsp-zero.nvim',
@@ -61,19 +80,6 @@ require("lazy").setup({
 
   { "kylechui/nvim-surround",    version = "*" },
   "windwp/nvim-autopairs",
-
-  {
-    "folke/which-key.nvim",
-    config = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 300
-      require("which-key").setup({
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      })
-    end,
-  },
 
   {
     "glepnir/lspsaga.nvim",
