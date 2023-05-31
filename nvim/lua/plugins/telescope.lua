@@ -28,11 +28,13 @@ return {
         },
         mappings = {
           n = {
+            ["q"] = actions.close,
             ["<Leader>p"] = actions.close,
             ["j"] = actions.move_selection_next,
             ["k"] = actions.move_selection_previous,
           },
           i = {
+            ["<Esc>"] = actions.close,
             ["<Leader>p"] = actions.close,
             ["<C-j>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous,
