@@ -30,5 +30,6 @@ return {
     end
 
     vim.api.nvim_set_keymap("n", "<leader>gt", "<cmd>lua lazygit_toggle()<CR>", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>ToggleTerm size=100 direction=vertical<CR>", { noremap = true, silent = true })
   end,
 }

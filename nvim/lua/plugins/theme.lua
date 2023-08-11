@@ -1,7 +1,14 @@
 return {
-  'rose-pine/neovim',
-  name = 'rose-pine',
+  'loctvl842/monokai-pro.nvim',
+  name = 'monokai-pro',
   config = function()
-    vim.cmd([[colorscheme rose-pine]])
+    require('monokai-pro').setup({
+      filter = "ristretto",
+      background_clear = {
+        "telescope"
+      },
+    })
+
+    vim.cmd('colorscheme monokai-pro')
   end
 }
