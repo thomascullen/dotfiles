@@ -18,6 +18,7 @@ vim.opt.smartindent = true
 vim.opt.signcolumn = 'no'
 vim.opt.cursorline = true
 vim.opt.scrolloff = 8
+vim.opt.background = 'dark'
 
 vim.keymap.set('i', 'kj', '<Esc>')
 vim.keymap.set('n', '<Leader>w', '<cmd>w <CR>')
@@ -54,3 +55,4 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
+

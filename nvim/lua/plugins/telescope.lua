@@ -18,6 +18,7 @@ return {
         file_browser = {
           grouped = true,
           initial_mode = "normal",
+          display_stat = false
         },
       },
       defaults = {

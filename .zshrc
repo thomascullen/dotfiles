@@ -56,3 +56,11 @@ if [[ -n "$ITERM_SESSION_ID" ]]; then
 fi
 
 autoload -Uz compinit && compinit
+
+# pnpm
+export PNPM_HOME="/Users/thomascullen/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
