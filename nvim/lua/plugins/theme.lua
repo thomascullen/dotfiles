@@ -15,7 +15,8 @@ return {
       override = function(c)
         return {
           Directory = { fg = "none", bg = "none" },
-          TelescopeSelection = { fg = "white", bg = "#3C3434" }
+          TelescopeSelection = { fg = "white", bg = "#3C3434" },
+          SagaBorder = { fg = c.base.yellow }
         }
       end
     })
