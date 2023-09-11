@@ -34,6 +34,10 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- quick list
+vim.keymap.set("n", "<Leader>qn", ":cnext<CR>")
+vim.keymap.set("n", "<Leader>qp", ":cprev<CR>")
+
 -- Make j and k work well with line wrapping
 vim.opt.wrap = true
 vim.keymap.set('n', 'j', 'gj')
