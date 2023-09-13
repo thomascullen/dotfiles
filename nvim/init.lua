@@ -38,6 +38,9 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<Leader>qn", ":cnext<CR>")
 vim.keymap.set("n", "<Leader>qp", ":cprev<CR>")
 
+-- quier mark jumping
+vim.keymap.set("n", "<Leader>m", "`")
+
 -- Make j and k work well with line wrapping
 vim.opt.wrap = true
 vim.keymap.set('n', 'j', 'gj')

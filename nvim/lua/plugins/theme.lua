@@ -5,7 +5,7 @@ return {
   name = 'monokai-pro',
   config = function()
     require('monokai-pro').setup({
-      transparent_background = false,
+      transparent_background = true,
       filter = "ristretto",
       inc_search = "background",
       background_clear = {
