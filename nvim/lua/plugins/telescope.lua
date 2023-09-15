@@ -12,6 +12,7 @@ return {
   },
   config = function()
     local actions = require("telescope.actions")
+    local fb_actions = require("telescope").extensions.file_browser.actions
 
     require('telescope').setup({
       extensions = {
@@ -32,6 +33,8 @@ return {
             ["q"] = actions.close,
             ["j"] = actions.move_selection_next,
             ["k"] = actions.move_selection_previous,
+            ["<C-c>"] = fb_actions.create,
+            ["<C-k>"] = fb_actions.goto_parent_dir,
             ["<C-h>"] = "which_key"
           },
           i = {

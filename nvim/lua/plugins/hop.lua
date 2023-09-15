@@ -7,8 +7,8 @@ return {
     { "<Leader>hl", "<cmd>HopLine<CR>" },
   },
   config = function()
-    require'hop'.setup { 
-      keys = 'etovxqpdygfblzhckisuran'
+    require'hop'.setup {
+      keys = 'arstdhneo'
     }
   end
 }
