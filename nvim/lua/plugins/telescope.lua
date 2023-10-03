@@ -7,6 +7,11 @@ return {
   },
   keys = {
     { "<Leader>p", "<cmd>Telescope find_files<CR>" },
+    { "<Leader>o", "<cmd>Telescope oldfiles<CR>" },
+    { "<Leader>d", "<cmd>Telescope lsp_document_symbols<CR>" },
+    { "<Leader>gb", "<cmd>Telescope git_branches<CR>" },
+    { "<Leader>gc", "<cmd>Telescope git_commits<CR>" },
+    { "<Leader>gn", "<cmd>Telescope git_status<CR>" },
     { "<Leader>s", "<cmd>Telescope live_grep<CR>" },
     { "<Leader>e", "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>" },
   },
