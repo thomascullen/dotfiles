@@ -12,13 +12,13 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-vim.opt.cmdheight = 1  -- hide command line when not in use
-vim.opt.laststatus = 0 -- hide status line
 vim.opt.smartindent = true
 vim.opt.signcolumn = 'no'
 vim.opt.cursorline = true
 vim.opt.scrolloff = 8
 vim.opt.background = 'dark'
+vim.opt.cmdheight = 0
+vim.opt.laststatus = 3
 
 vim.keymap.set('i', 'kj', '<Esc>')
 vim.keymap.set('n', '<Leader>w', '<cmd>w <CR>')
