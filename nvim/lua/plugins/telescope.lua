@@ -8,7 +8,7 @@ return {
   keys = {
     { "<Leader>p", "<cmd>Telescope find_files<CR>" },
     { "<Leader>o", "<cmd>Telescope oldfiles<CR>" },
-    { "<Leader>d", "<cmd>Telescope lsp_document_symbols<CR>" },
+    { "<Leader>a", "<cmd>Telescope lsp_document_symbols<CR>" },
     { "<Leader>gb", "<cmd>Telescope git_branches<CR>" },
     { "<Leader>gc", "<cmd>Telescope git_commits<CR>" },
     { "<Leader>gn", "<cmd>Telescope git_status<CR>" },
