@@ -1,8 +1,8 @@
 return {
   'nvim-telescope/telescope.nvim',
-  tag = '0.1.1',
   dependencies = {
     'nvim-lua/plenary.nvim',
+    "ahmedkhalf/project.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
   },
   keys = {
@@ -58,5 +58,6 @@ return {
     })
 
     require("telescope").load_extension("file_browser")
+    require("telescope").load_extension("projects")
   end
 }
