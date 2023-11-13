@@ -20,8 +20,13 @@ vim.opt.background = 'dark'
 vim.opt.cmdheight = 0
 vim.opt.laststatus = 3
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.keymap.set('i', 'kj', '<Esc>')
 vim.keymap.set('n', '<Leader>w', '<cmd>w <CR>')
+vim.keymap.set('n', '<Leader>q', '<cmd>X <CR>')
+vim.keymap.set('n', '<Leader><Leader>q', '<cmd>qa! <CR>')
 
 -- keep cursor in center of screen for ctrl-d and ctrl-u
 vim.keymap.set("n", "<C-d>", "<C-d>zz")

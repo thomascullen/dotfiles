@@ -11,7 +11,7 @@ return {
     { "<Leader>gb", "<cmd>Telescope git_branches<CR>" },
     { "<Leader>gc", "<cmd>Telescope git_commits<CR>" },
     { "<Leader>gn", "<cmd>Telescope git_status<CR>" },
-    { "<Leader>s",  "<cmd>Telescope live_grep<CR>" },
+    { "<Leader>s", "<cmd>Telescope live_grep<CR>" },
   },
   config = function()
     local actions = require("telescope.actions")
