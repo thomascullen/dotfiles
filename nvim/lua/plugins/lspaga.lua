@@ -1,6 +1,9 @@
 return {
   "glepnir/lspsaga.nvim",
-  event = "LspAttach",
+  dependencies = {
+    { "nvim-tree/nvim-web-devicons" },
+    { "nvim-treesitter/nvim-treesitter" }
+  },
   config = function()
     local keymap = vim.keymap.set
     require("lspsaga").setup({
@@ -18,8 +21,4 @@ return {
     keymap("n", "<leader>dn", "<cmd>Lspsaga diagnostic_jump_next<CR>")
     keymap("n", "<leader>dp", "<cmd>Lspsaga diagnostic_jump_previous<CR>")
   end,
-  dependencies = {
-    { "nvim-tree/nvim-web-devicons" },
-    { "nvim-treesitter/nvim-treesitter" }
-  }
 }
