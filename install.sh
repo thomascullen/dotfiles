@@ -25,3 +25,7 @@ if ! grep -q "$zsh_init" "$HOME/.zshrc"; then
 	echo "Adding zsh init to .zshrc"
 	echo "$zsh_init" >> "$HOME/.zshrc"
 fi
+
+# Install homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew bundle
