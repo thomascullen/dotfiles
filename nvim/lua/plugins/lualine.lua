@@ -1,24 +1,13 @@
 return {
-  'nvim-lualine/lualine.nvim',
-  priority = 20000,
-  dependencies = {
-    'nvim-tree/nvim-web-devicons'
-  },
-  config = function()
-    require("lualine").setup({
-      options = {
-        icons_enabled = true,
-        globalstatus = true,
-        component_separators = { left = '•', right = '•' }
-      },
-      sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = { 'filename' },
-        lualine_x = { 'filetype' },
-        lualine_y = {},
-        lualine_z = { 'location' }
-      },
-    })
-  end
+	-- Set lualine as statusline
+	'nvim-lualine/lualine.nvim',
+	-- See `:help lualine.txt`
+	opts = {
+		options = {
+			icons_enabled = false,
+			theme = 'tokyonight',
+			component_separators = '|',
+			section_separators = '',
+		},
+	},
 }

@@ -1,0 +1,7 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+format = "$directory$git_branch$git_state\n▶ "
+
+continuation_prompt = '-▶ '
