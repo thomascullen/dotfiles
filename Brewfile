@@ -9,3 +9,5 @@ brew "tldr"
 # quick navigation
 brew "z"
 brew "httpie"
+# better shell
+brew "starship"
