@@ -1,5 +1,5 @@
 env:
-  TERM: screen-256color
+  TERM: tmux-256color
 
 window:
   decorations: full

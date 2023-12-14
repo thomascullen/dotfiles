@@ -25,3 +25,5 @@ fi
 export EDITOR=nvim
 
 source "$(dirname "$0")/aliases.sh"
+
+. /opt/homebrew/etc/profile.d/z.sh
