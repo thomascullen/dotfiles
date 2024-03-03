@@ -1,53 +1,64 @@
 return {
-	'VonHeikemen/lsp-zero.nvim',
-	branch = 'v3.x',
+	'neovim/nvim-lspconfig',
 	dependencies = {
-		'neovim/nvim-lspconfig',
+		-- cmp
 		'hrsh7th/nvim-cmp',
 		'hrsh7th/cmp-nvim-lsp',
-		'hrsh7th/cmp-path',
-
 		'L3MON4D3/LuaSnip',
-		'saadparwaiz1/cmp_luasnip',
 
-		-- Automatically install LSPs to stdpath for neovim
+		-- Automatically install LSPs and related tools to stdpath for neovim
 		'williamboman/mason.nvim',
 		'williamboman/mason-lspconfig.nvim',
 
-		-- Useful status updates for LSP
+		-- Useful status updates for LSP.
 		-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 		{ 'j-hui/fidget.nvim', opts = {} },
-
-		-- Additional lua configuration, makes nvim stuff amazing!
-		'folke/neodev.nvim',
-
-		-- Mmmm lasagne
-		'nvimdev/lspsaga.nvim',
 	},
 	config = function()
-		require('lspsaga').setup({})
+		-- LspAttach is called when an LSP attaches to a buffer
+		vim.api.nvim_create_autocmd('LspAttach', {
+			group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
+			callback = function(event)
+				-- Setup fidget
+				require('fidget').setup({})
 
-		local zero = require('lsp-zero')
-		zero.on_attach(function(client, bufnr)
-			zero.default_keymaps({ buffer = bufnr })
-		end)
+				local ts = require 'telescope.builtin'
 
-		require('mason').setup()
+				-- Jump to the definition of the word under your cursor.
+				vim.keymap.set('n', 'gd', ts.lsp_definitions, { buffer = event.buf, desc = '[G]oto [D]efinition' })
+				-- Find references for the word under your cursor.
+				vim.keymap.set('n', 'gr', ts.lsp_references, { buffer = event.buf, desc = '[G]oto [R]eferences' })
+				-- Jump to the type of the word under your cursor.
+				vim.keymap.set('n', '<leader>D', ts.lsp_type_definitions, { buffer = event.buf, desc = '[G]oto [T]ype' })
+				-- Fuzzy find all the symbols in your current document.
+				vim.keymap.set('n', '<leader>ds', ts.lsp_document_symbols,
+					{ buffer = event.buf, desc = '[G]oto [D]ocument [S]ymbols' })
+				-- code action
+				vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = event.buf, desc = '[C]ode [A]ctions' })
+				-- documentation hover
+				vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = event.buf, desc = '[H]over [D]ocumentation' })
+			end,
+		})
+
+		-- Setup mason
+		local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+		local default_setup = function(server)
+			require('lspconfig')[server].setup({
+				capabilities = lsp_capabilities,
+			})
+		end
+
+		require('mason').setup({})
 		require('mason-lspconfig').setup({
 			ensure_installed = {},
 			handlers = {
-				zero.default_setup,
+				default_setup,
 			},
 		})
 
-		require('neodev').setup()
-
 		-- setup cmp
 		local cmp = require 'cmp'
-		local luasnip = require 'luasnip'
-
-		require('luasnip.loaders.from_vscode').lazy_load()
-		luasnip.config.setup {}
 
 		cmp.setup({
 			window = {
@@ -67,13 +78,5 @@ return {
 				{ name = 'luasnip' },
 			},
 		})
-
-		-- setup lspsaga
-		local keymap = vim.keymap.set
-		keymap({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>")
-		keymap("n", "<leader>gl", "<cmd>Lspsaga show_line_diagnostics<CR>")
-		keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>")
-		keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
-		keymap("n", "gpd", "<cmd>Lspsaga peek_definition<CR>")
 	end
 }
