@@ -12,7 +12,6 @@ vim.opt.relativenumber = true
 vim.opt.showmode = false
 
 vim.o.termguicolors = true
-vim.opt.cmdheight = 0
 
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.opt.ignorecase = true

@@ -4,7 +4,10 @@ return {
 		-- cmp
 		'hrsh7th/nvim-cmp',
 		'hrsh7th/cmp-nvim-lsp',
+
+
 		'L3MON4D3/LuaSnip',
+		'saadparwaiz1/cmp_luasnip',
 
 		-- Automatically install LSPs and related tools to stdpath for neovim
 		'williamboman/mason.nvim',
@@ -37,6 +40,7 @@ return {
 				vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = event.buf, desc = '[C]ode [A]ctions' })
 				-- documentation hover
 				vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = event.buf, desc = '[H]over [D]ocumentation' })
+				vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { buffer = event.buf, desc = '[O]pen [D]iagnostics' })
 			end,
 		})
 
@@ -58,20 +62,28 @@ return {
 		})
 
 		-- setup cmp
+		local luasnip = require 'luasnip'
 		local cmp = require 'cmp'
 
+		luasnip.config.setup {}
+
 		cmp.setup({
+			snippet = {
+				expand = function(args)
+					luasnip.lsp_expand(args.body)
+				end,
+			},
 			window = {
 				border = "rounded",
 			},
 			completion = {
 				border = "rounded",
 			},
-			mapping = {
+			mapping = cmp.mapping.preset.insert({
 				['<C-j>'] = cmp.mapping.select_next_item(),
 				['<C-k>'] = cmp.mapping.select_prev_item(),
 				['<CR>'] = cmp.mapping.confirm({ select = false }),
-			},
+			}),
 			sources = {
 				{ name = 'nvim_lsp' },
 				{ name = 'path' },
