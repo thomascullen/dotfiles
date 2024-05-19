@@ -1,20 +1,8 @@
 return {
 	'neovim/nvim-lspconfig',
 	dependencies = {
-		-- cmp
-		'hrsh7th/nvim-cmp',
-		'hrsh7th/cmp-nvim-lsp',
-
-
-		'L3MON4D3/LuaSnip',
-		'saadparwaiz1/cmp_luasnip',
-
-		-- Automatically install LSPs and related tools to stdpath for neovim
 		'williamboman/mason.nvim',
 		'williamboman/mason-lspconfig.nvim',
-
-		-- Useful status updates for LSP.
-		-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 		{ 'j-hui/fidget.nvim', opts = {} },
 	},
 	config = function()
@@ -45,12 +33,10 @@ return {
 		})
 
 		-- Setup mason
-		local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+		-- local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 		local default_setup = function(server)
-			require('lspconfig')[server].setup({
-				capabilities = lsp_capabilities,
-			})
+			require('lspconfig')[server].setup({})
 		end
 
 		require('mason').setup({})
@@ -58,36 +44,6 @@ return {
 			ensure_installed = {},
 			handlers = {
 				default_setup,
-			},
-		})
-
-		-- setup cmp
-		local luasnip = require 'luasnip'
-		local cmp = require 'cmp'
-
-		luasnip.config.setup {}
-
-		cmp.setup({
-			snippet = {
-				expand = function(args)
-					luasnip.lsp_expand(args.body)
-				end,
-			},
-			window = {
-				border = "rounded",
-			},
-			completion = {
-				border = "rounded",
-			},
-			mapping = cmp.mapping.preset.insert({
-				['<C-j>'] = cmp.mapping.select_next_item(),
-				['<C-k>'] = cmp.mapping.select_prev_item(),
-				['<CR>'] = cmp.mapping.confirm({ select = false }),
-			}),
-			sources = {
-				{ name = 'nvim_lsp' },
-				{ name = 'path' },
-				{ name = 'luasnip' },
 			},
 		})
 	end
