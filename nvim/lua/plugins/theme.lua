@@ -12,7 +12,8 @@ return {
 			LineNr = { fg = 'highlight_high' },
 			LineNrAbove = { fg = 'highlight_med' },
 			LineNrBelow = { fg = 'highlight_med' },
-			NonText = { fg = 'base' }
+			NonText = { fg = 'base' },
+			FloatBorder = { bg = 'base', fg = 'foam' },
 		}
 	},
 	config = function(_, opts)
