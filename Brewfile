@@ -11,3 +11,5 @@ brew "z"
 brew "httpie"
 # better shell
 brew "starship"
+# ZSH plugin manager
+brew "zinit"
