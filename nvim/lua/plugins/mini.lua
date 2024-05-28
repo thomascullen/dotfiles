@@ -13,10 +13,15 @@ return {
 		local starter = require('mini.starter')
 
 		starter.setup({
-			footer = '',
+			header = '🐼 Hello',
 			items = {
-				starter.sections.recent_files(10, true),
-			}
+				starter.sections.recent_files(5, true),
+			},
+			footer = '',
+			content_hooks = {
+				starter.gen_hook.adding_bullet(),
+				starter.gen_hook.aligning('center', 'center'),
+			},
 		})
 
 		-- files
@@ -44,6 +49,7 @@ return {
 				end)
 
 				MiniFiles.set_target_window(new_target_window)
+				MiniFiles.go_in({ close_on_file = true })
 			end
 
 			-- Adding `desc` will result into `show_help` entries
@@ -60,9 +66,9 @@ return {
 			callback = function(args)
 				local buf_id = args.data.buf_id
 				-- Tweak keys to your liking
-				map_split(buf_id, 'gs', 'belowright horizontal')
-				map_split(buf_id, 'gv', 'belowright vertical')
-				vim.keymap.set('n', 'gr', open_root, { buffer = buf_id, desc = 'Open [R]oot' })
+				map_split(buf_id, '<C-x>', 'belowright horizontal')
+				map_split(buf_id, '<C-v>', 'belowright vertical')
+				vim.keymap.set('n', '<C-r>', open_root, { buffer = buf_id, desc = 'Open [R]oot' })
 			end,
 		})
 	end
