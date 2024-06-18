@@ -19,6 +19,9 @@ colors
 # if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 #   exec tmux new-session -A -s main
 # fi
+#
+# auto start zellij
+# eval "$(zellij setup --generate-auto-start zsh)"
 
 # if env file exists, load it
 if [ -f "$(dirname "$0")/env.sh" ]; then
