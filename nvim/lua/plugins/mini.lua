@@ -7,8 +7,8 @@ return {
 		require("mini.comment").setup()
 		require("mini.surround").setup()
 
-		local statusline = require 'mini.statusline'
-		statusline.setup()
+		-- local statusline = require 'mini.statusline'
+		-- statusline.setup()
 
 		local starter = require('mini.starter')
 
