@@ -14,6 +14,9 @@ return {
 			LineNrBelow = { fg = 'highlight_med' },
 			NonText = { fg = 'base' },
 			FloatBorder = { bg = 'base', fg = 'foam' },
+		},
+		styles = {
+			transparency = true,
 		}
 	},
 	config = function(_, opts)
