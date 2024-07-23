@@ -1,5 +1,6 @@
 alias tx="tmux"
 alias vim="nvim"
+alias c="z"
 
 alias test='1234'
 

@@ -26,6 +26,8 @@ vim.opt.shiftwidth = 2
 vim.opt.smartindent = true
 vim.opt.swapfile = false
 
+vim.opt.laststatus = 0
+
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -88,9 +90,4 @@ require("lazy").setup({
 		-- import your plugins
 		{ import = "plugins" },
 	},
-	-- Configure any other settings here. See the documentation for more details.
-	-- colorscheme that will be used when installing plugins.
-	install = { colorscheme = { "habamax" } },
-	-- automatically check for plugin updates
-	checker = { enabled = true },
 })
