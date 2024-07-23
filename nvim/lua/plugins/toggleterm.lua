@@ -8,10 +8,7 @@ return {
 		local lazygit  = Terminal:new({
 			cmd = "lazygit",
 			hidden = true,
-			direction = "float",
-			float_opts = {
-				border = "double",
-			},
+			direction = "tab",
 			-- function to run on opening the terminal
 			on_open = function(term)
 				vim.cmd("startinsert!")
