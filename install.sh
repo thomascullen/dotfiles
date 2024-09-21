@@ -16,7 +16,8 @@ function create_link() {
 }
 
 create_link "$(pwd)/nvim" "$HOME/.config/nvim"
-create_link "$(pwd)/tmux/tmux.conf" "$HOME/.tmux.conf"
+create_link "$(pwd)/tmux.conf" "$HOME/.tmux.conf"
+create_link "$(pwd)/tmux" "$HOME/.tmux"
 create_link "$(pwd)/wezterm.lua" "$HOME/.wezterm.lua"
 
 zsh_init="source $(pwd)/zsh/init.sh"
