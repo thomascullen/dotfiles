@@ -15,10 +15,13 @@ function create_link() {
 	echo "Symlinking $sourceFile -> $targetFile"
 }
 
+mkdir "$HOME/.config/ghostty"
+
 create_link "$(pwd)/nvim" "$HOME/.config/nvim"
 create_link "$(pwd)/tmux.conf" "$HOME/.tmux.conf"
 create_link "$(pwd)/tmux" "$HOME/.tmux"
 create_link "$(pwd)/wezterm.lua" "$HOME/.wezterm.lua"
+create_link "$(pwd)/ghostty" "$HOME/.config/ghostty/config"
 
 zsh_init="source $(pwd)/zsh/init.sh"
 echo "zsh init: $zsh_init"
