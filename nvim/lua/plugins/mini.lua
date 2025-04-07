@@ -7,6 +7,7 @@ return {
     require("mini.comment").setup()
     require("mini.surround").setup()
 
+    -- Files
     local files = require("mini.files")
     files.setup()
 
@@ -18,8 +19,9 @@ return {
       files.open(vim.api.nvim_buf_get_name(0), false)
     end, { desc = 'toggle [F]iles' })
 
-    -- local statusline = require 'mini.statusline'
-    -- statusline.setup()
+    -- Status line
+    local statusline = require 'mini.statusline'
+    statusline.setup()
 
     local starter = require('mini.starter')
 
