@@ -7,6 +7,17 @@ return {
     require("mini.comment").setup()
     require("mini.surround").setup()
 
+    local files = require("mini.files")
+    files.setup()
+
+    vim.keymap.set('n', '<leader>e', function()
+      files.open(nil, false)
+    end, { desc = 'toggle [E]xplorer' })
+
+    vim.keymap.set('n', '<leader>f', function()
+      files.open(vim.api.nvim_buf_get_name(0), false)
+    end, { desc = 'toggle [F]iles' })
+
     -- local statusline = require 'mini.statusline'
     -- statusline.setup()
 
