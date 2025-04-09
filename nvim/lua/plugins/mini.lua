@@ -12,11 +12,11 @@ return {
     files.setup()
 
     vim.keymap.set('n', '<leader>e', function()
-      files.open(nil, false)
+      files.open(vim.api.nvim_buf_get_name(0), false)
     end, { desc = 'toggle [E]xplorer' })
 
-    vim.keymap.set('n', '<leader>f', function()
-      files.open(vim.api.nvim_buf_get_name(0), false)
+    vim.keymap.set('n', '<leader>o', function()
+      files.open(nil, false)
     end, { desc = 'toggle [F]iles' })
 
     local map_split = function(buf_id, lhs, direction)
