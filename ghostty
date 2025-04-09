@@ -1,4 +1,3 @@
 font-thicken = true
-theme = rose-pine
+theme = tokyonight_night
 adjust-cell-height = 20%
-background = #131120
