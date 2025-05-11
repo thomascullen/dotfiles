@@ -1,12 +1,21 @@
 return {
-  "folke/tokyonight.nvim",
+  "EdenEast/nightfox.nvim",
   lazy = false,
   priority = 1000,
-  opts = {},
   config = function(_, opts)
-    vim.cmd [[colorscheme tokyonight-night]]
+    vim.cmd [[colorscheme terafox]]
   end,
 }
+
+-- return {
+--   "folke/tokyonight.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   opts = {},
+--   config = function(_, opts)
+--     vim.cmd [[colorscheme tokyonight-night]]
+--   end,
+-- }
 --
 -- return {
 -- 	"rose-pine/neovim",
