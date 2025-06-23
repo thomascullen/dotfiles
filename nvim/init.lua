@@ -5,7 +5,14 @@ vim.g.maplocalleader = ' '
 local opt = vim.opt
 
 opt.autowrite = true -- Enable auto write
-opt.autoread = true  -- Auto update files when changed outside of Vim
+
+-- Auto update files when changed outside of Vim
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = { "*" },
+})
+
 -- only set clipboard if not in ssh, to make sure the OSC 52
 -- integration works automatically. Requires Neovim >= 0.10.0
 -- opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
