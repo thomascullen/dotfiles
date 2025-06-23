@@ -18,3 +18,5 @@ alias parachute-down='aws lambda invoke \
   --payload $(echo '\''{"detail":{"scale":"DOWN"}}'\'' | base64) \
   --profile '\''domainparachute'\'' \
   /dev/null'
+
+alias ai='codex --approval-mode full-auto'
