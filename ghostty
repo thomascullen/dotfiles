@@ -1,3 +1,4 @@
 font-thicken = true
-theme = terafox
+theme = rose-pine
 adjust-cell-height = 20%
+window-padding-x = 10

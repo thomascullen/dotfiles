@@ -11,6 +11,8 @@ return {
         json = { "prettierd" },
         html = { "prettierd" },
         graphql = { "prettierd" },
+        markdown = { "prettierd" },
+        mdx = { "prettierd" },
       },
       format_on_save = {
         timeout_ms = 800,

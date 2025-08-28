@@ -109,3 +109,5 @@ require("lazy").setup({
     { import = "plugins" },
   },
 })
+
+require("custom.mdx")
