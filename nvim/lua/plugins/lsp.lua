@@ -3,7 +3,6 @@ return {
   dependencies = {
     { "mason-org/mason.nvim", opts = {} },
     "mason-org/mason-lspconfig.nvim",
-    "saghen/blink.cmp",
     "j-hui/fidget.nvim" -- provides tooltips in the bottom right on startup
   },
   config = function()
