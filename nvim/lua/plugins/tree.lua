@@ -6,6 +6,7 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   config = function()
+    vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeFindFileToggle<CR>', { desc = 'Toggle file tree' })
     require("nvim-tree").setup {}
   end,
 }

@@ -19,6 +19,12 @@ return {
       desc = "Goto/Apply Next Edit Suggestion",
     },
     {
+      "<c-.>",
+      function() require("sidekick.cli").toggle({ name = "opencode", focus = true }) end,
+      desc = "Sidekick Toggle",
+      mode = { "n", "t", "i", "x" },
+    },
+    {
       "<leader>ad",
       function() require("sidekick.cli").close() end,
       desc = "Detach a CLI Session",
@@ -45,11 +51,6 @@ return {
       function() require("sidekick.cli").prompt() end,
       mode = { "n", "x" },
       desc = "Sidekick Select Prompt",
-    },
-    {
-      "<leader>aa",
-      function() require("sidekick.cli").toggle({ name = "opencode", focus = true }) end,
-      desc = "Sidekick Toggle Opencode CLI",
     },
   },
 }
