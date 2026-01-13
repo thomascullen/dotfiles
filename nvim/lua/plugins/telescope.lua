@@ -14,7 +14,6 @@ return {
   },
   config = function()
     local actions = require("telescope.actions")
-    local open_with_trouble = require('trouble.sources.telescope').open
 
     require('telescope').setup({
       defaults = {
@@ -27,14 +26,12 @@ return {
           n = {
             ["q"] = actions.close,
             ["j"] = actions.move_selection_next,
-            ["k"] = actions.move_selection_previous,
-            ['<C-q>'] = open_with_trouble,
+            ["k"] = actions.move_selection_previous
           },
           i = {
             ["<Esc>"] = actions.close,
             ["<C-j>"] = actions.move_selection_next,
-            ["<C-k>"] = actions.move_selection_previous,
-            ['<C-q>'] = open_with_trouble,
+            ["<C-k>"] = actions.move_selection_previous
           },
         },
       },
