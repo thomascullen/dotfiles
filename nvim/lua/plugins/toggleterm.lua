@@ -5,6 +5,7 @@ return {
     require("toggleterm").setup()
 
     local Terminal = require('toggleterm.terminal').Terminal
+
     local lazygit  = Terminal:new({
       cmd = "lazygit",
       hidden = true,
@@ -29,5 +30,19 @@ return {
       { noremap = true, silent = true })
     vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>ToggleTerm size=100 direction=vertical<CR>",
       { noremap = true, silent = true })
+
+    -- Opencode
+    local opencode = Terminal:new({
+      cmd = "opencode",
+      hidden = true,
+      direction = "float",
+      start_in_insert = true,
+    })
+
+    function opencode_toggle()
+      opencode:toggle()
+    end
+
+    vim.keymap.set({ 'n', 'i', 't' }, '<c-.>', opencode_toggle, { noremap = true, silent = true })
   end,
 }
