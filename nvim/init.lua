@@ -92,6 +92,9 @@ vim.keymap.set('n', '$', 'g$')
 vim.keymap.set('i', 'kj', '<Esc>')
 -- quick write
 vim.keymap.set('n', '<Leader>w', '<cmd>w <CR>')
+vim.keymap.set('n', '<leader>d', function()
+  vim.diagnostic.open_float(0, { scope = 'line' })
+end, { desc = 'Show line diagnostics' })
 
 -- Install Lazy plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
