@@ -14,11 +14,7 @@ return {
         }
       },
       nes = {
-        enabled = true, -- Enable the NES functionality
-        auto_trigger = true,
-        keymap = {
-          accept_and_goto = '<leader>y',
-        },
+        enabled = false, -- Enable the NES functionality
       },
     })
   end,
