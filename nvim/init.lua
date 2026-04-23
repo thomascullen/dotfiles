@@ -113,11 +113,12 @@ require("lazy").setup({
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { '<filetype>' },
-  callback = function() vim.treesitter.start() end,
+  pattern = { 'markdown' },
+  callback = function() vim.opt_local.wrap = true end,
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'markdown' },
-  callback = function() vim.opt_local.wrap = true end,
+  callback = function(args)
+    pcall(vim.treesitter.start, args.buf)
+  end,
 })
