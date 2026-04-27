@@ -14,6 +14,10 @@ return {
           buffer = event.buf,
           desc = "Go to definition",
         })
+        vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {
+          buffer = event.buf,
+          desc = "Code actions",
+        })
       end,
     })
   end,
