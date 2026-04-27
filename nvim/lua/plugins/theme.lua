@@ -1,15 +1,7 @@
 return {
-  "folke/tokyonight.nvim",
-  lazy = false,
-  priority = 1000,
-  opts = {
-    transparent = true,
-    styles = {
-      sidebars = "transparent",
-      floats = "transparent",
-    },
-  },
+  "shatur/neovim-ayu",
   config = function()
-    vim.cmd [[colorscheme tokyonight]]
-  end,
+    require("ayu").setup({})
+    require('ayu').colorscheme()
+  end
 }
